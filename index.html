@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tharun Kumar S | AI & ML Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+:root{
+--bg:#0c0c15;
+--card:#1f2937cc;
+--text:#e5e7eb;
+--muted:#9ca3af;
+--accent:#60a5fa;
+--accent2:#8e2de2;
+--transition:0.3s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Exo 2',sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.7}
+a{text-decoration:none;color:inherit}
+section{padding:70px 0}
+.container{max-width:1100px;margin:auto;padding:0 20px}
+
+/* NAV */
+nav{
+position:fixed;top:0;width:100%;
+background:#0a0818f5;z-index:1000;
+}
+.nav-container{
+display:flex;justify-content:space-between;align-items:center;
+max-width:1100px;margin:auto;padding:15px 20px;
+}
+.logo{
+font-family:'Orbitron';font-size:1.4rem;
+background:linear-gradient(135deg,var(--accent),#93c5fd);
+-webkit-background-clip:text;color:transparent;
+}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a:hover{color:var(--accent)}
+
+/* HOME */
+#home{min-height:100vh;display:flex;align-items:center;text-align:center}
+#home h1{
+font-family:'Orbitron';
+font-size:3.5rem;
+background:linear-gradient(135deg,var(--accent),#93c5fd);
+-webkit-background-clip:text;color:transparent;
+}
+.subtitle{font-size:1.7rem;color:#93c5fd;margin:10px 0}
+.intro{max-width:700px;margin:20px auto;color:var(--muted)}
+.btn{
+display:inline-block;padding:12px 35px;margin-top:25px;
+background:linear-gradient(135deg,var(--accent2),var(--accent));
+border-radius:30px;font-weight:600;
+transition:var(--transition)
+}
+.btn:hover{transform:translateY(-4px)}
+
+/* SECTION TITLE */
+.section-title{
+text-align:center;font-family:'Orbitron';
+font-size:2.3rem;margin-bottom:50px;color:var(--accent)
+}
+
+/* CARD */
+.card{
+background:var(--card);
+padding:25px;border-radius:15px;
+margin-bottom:25px;
+transition:var(--transition)
+}
+.card:hover{transform:scale(1.02)}
+
+/* ABOUT */
+.about p{color:var(--muted);margin-bottom:15px}
+/* ===== ABOUT ME (PHOTO + LINKS) ===== */
+.about-card{
+display:flex;
+gap:40px;
+align-items:center;
+background:var(--card);
+padding:30px;
+border-radius:15px;
+transition:0.3s ease;
+}
+
+.about-left{
+text-align:center;
+}
+
+.profile-photo{
+width:200px;
+height:200px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid var(--accent);
+box-shadow:0 0 25px rgba(96,165,250,0.4);
+}
+
+.social-links{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:15px;
+}
+
+.social-links a{
+width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:#60a5fa1a;
+color:var(--accent);
+font-size:1.2rem;
+transition:0.3s ease;
+}
+
+.social-links a:hover{
+background:linear-gradient(135deg,var(--accent2),var(--accent));
+color:white;
+transform:scale(1.1);
+}
+
+.about-right p{
+color:var(--muted);
+margin-bottom:15px;
+line-height:1.7;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.about-card{
+flex-direction:column;
+text-align:center;
+}
+}
+/* ACHIEVEMENTS GALLERY */
+.achievement-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+
+.achievement-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+.achievement-card p{
+  color:var(--muted);
+  font-size:0.95rem;
+}
+/* CERTIFICATIONS */
+.cert-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.cert-card{
+  background:linear-gradient(145deg,#1f2937,#111827);
+  padding:22px;
+  border-radius:16px;
+  position:relative;
+  overflow:hidden;
+  transition:0.35s ease;
+  border:1px solid rgba(96,165,250,0.15);
+}
+
+.cert-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(96,165,250,0.25),transparent);
+  opacity:0;
+  transition:0.35s ease;
+}
+
+.cert-card:hover::before{
+  opacity:1;
+}
+
+.cert-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.45);
+}
+
+.cert-title{
+  font-weight:600;
+  font-size:1.05rem;
+  margin-bottom:12px;
+}
+
+.cert-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+.cert-badge{
+  padding:5px 12px;
+  border-radius:20px;
+  font-size:0.75rem;
+  font-weight:600;
+  background:#60a5fa1a;
+  color:var(--accent);
+}
+
+/* CONTACT SECTION */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+.contact-card{
+  background:linear-gradient(145deg,#1f2937,#111827);
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+  transition:0.35s ease;
+  border:1px solid rgba(96,165,250,0.15);
+  position:relative;
+}
+
+.contact-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.45);
+}
+
+.contact-icon{
+  font-size:2.2rem;
+  margin-bottom:15px;
+  color:var(--accent);
+}
+
+.contact-title{
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.contact-card a{
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+.contact-card a:hover{
+  color:var(--accent);
+}
+
+/* SOCIAL BUTTONS */
+.contact-socials{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-top:15px;
+}
+
+.contact-socials a{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#60a5fa1a;
+  color:var(--accent);
+  font-size:1.3rem;
+  transition:0.3s ease;
+}
+
+.contact-socials a:hover{
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  color:#fff;
+  transform:scale(1.15);
+}
+
+
+
+/* SKILLS */
+.skill-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:15px
+}
+.skill{
+background:#60a5fa1a;
+padding:15px;border-radius:12px;
+text-align:center;font-weight:500
+}
+
+/* EXPERIENCE & PROJECTS */
+ul{padding-left:20px}
+li{margin-bottom:8px}
+
+/* FOOTER */
+footer{
+text-align:center;padding:25px 0;
+background:#0a0818f5;margin-top:40px;
+color:var(--muted)
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+#home h1{font-size:2.5rem}
+.subtitle{font-size:1.3rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="nav-container">
+<div class="logo">Tharun Kumar S</div>
+<ul class="nav-links">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#experience">Experience</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#publications">Publications</a></li>
+  <li><a href="#achievements">Achievements</a></li>
+  <li><a href="#certifications">Certifications</a></li>
+  <li><a href="#hackathons">Hackathons</a></li>
+  <li><a href="#activities">Activities</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+<div class="container">
+<h1>Hi, I'm<br>Tharun Kumar S</h1>
+<p class="subtitle">AI & Machine Learning Engineer</p>
+<p class="intro">
+M.Tech student specializing in Artificial Intelligence and Machine Learning with strong
+research experience in computer vision, medical imaging, and applied AI systems.
+Published IEEE researcher passionate about real-world AI solutions.
+</p>
+<a href="#contact" class="btn">Let's Connect</a>
+</div>
+</section>
+
+<section id="about">
+  <div class="container about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-card">
+      
+      <!-- LEFT: PROFILE PHOTO -->
+      <div class="about-left">
+        <img src="WhatsApp Image PM.jpeg" alt="Tharun Kumar S" class="profile-photo">
+
+        <!-- SOCIAL LINKS -->
+        <div class="social-links">
+          <a href="http://linkedin.com/in/tharun-kumar-s-875573229" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/T-K-234" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AF9nlQteobL4hUvKScrAl54gpftAEbb4YtN0FlyKJTyvC_7kGys6dYvkgb73Wq09-5li_-_Rd9nhnV9y2mhlCw&user=Tk4v8bQAAAAJ" target="_blank" title="Google Scholar">
+            <i class="fas fa-graduation-cap"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: ABOUT CONTENT -->
+      <div class="about-right">
+        <p>
+          I am an M.Tech student specializing in Artificial Intelligence and Machine Learning at
+          <b>VIT Chennai</b>, with strong research and hands-on experience in deep learning,
+          computer vision, and healthcare AI.
+        </p>
+
+        <p>
+          My work involves developing real-time AI systems using CNNs, Transformers, YOLO,
+          GANs, and ensemble learning techniques, with a focus on medical imaging and applied AI.
+        </p>
+
+        <p>
+          I am a published IEEE researcher, passionate about translating research ideas into
+          scalable, ethical, and real-world solutions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Technical Skills</h2>
+
+    <!-- Programming Languages -->
+    <div class="card">
+      <h3>Programming Languages</h3>
+      <div class="skill-grid">
+        <div class="skill">Python</div>
+        <div class="skill">Java</div>
+        <div class="skill">C</div>
+      </div>
+    </div>
+
+    <!-- Core Computer Science -->
+    <div class="card">
+      <h3>Core Computer Science</h3>
+      <div class="skill-grid">
+        <div class="skill">Data Structures</div>
+        <div class="skill">Algorithms</div>
+        <div class="skill">Operating Systems</div>
+        <div class="skill">Multithreading</div>
+      </div>
+    </div>
+
+    <!-- Machine Learning -->
+    <div class="card">
+      <h3>Machine Learning</h3>
+      <div class="skill-grid">
+        <div class="skill">Supervised Learning</div>
+        <div class="skill">Unsupervised Learning</div>
+        <div class="skill">Ensemble Learning</div>
+        <div class="skill">Model Evaluation</div>
+      </div>
+    </div>
+
+    <!-- Deep Learning -->
+    <div class="card">
+      <h3>Deep Learning</h3>
+      <div class="skill-grid">
+        <div class="skill">Convolutional Neural Networks (CNN)</div>
+        <div class="skill">Vision Transformer (ViT)</div>
+        <div class="skill">Swin Transformer</div>
+        <div class="skill">Generative Adversarial Networks (GANs)</div>
+      </div>
+    </div>
+
+    <!-- Frameworks & Tools -->
+    <div class="card">
+      <h3>Frameworks & Tools</h3>
+      <div class="skill-grid">
+        <div class="skill">TensorFlow</div>
+        <div class="skill">PyTorch</div>
+        <div class="skill">Scikit-learn</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">Jupyter Notebook</div>
+        <div class="skill">VS Code</div>
+      </div>
+    </div>
+    <div class="card">
+<h3>Backend & Tools</h3>
+<div class="skill-grid">
+<div class="skill">Flask</div>
+<div class="skill">SQLite3</div>
+<div class="skill">GitHub</div>
+<div class="skill">VS Code</div>
+<div class="skill">Jupyter</div>
+</div>
+
+  </div>
+</section>
+
+
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="container">
+<h2 class="section-title">Experience</h2>
+
+<div class="card">
+<h3>Intern – National Institute of Ocean Technology (NIOT)</h3>
+<p><i>June 2024 – July 2024</i></p>
+<ul>
+<li>Built real-time fish disease classification using YOLOv10 and CNN</li>
+<li>Worked with real datasets provided by NIOT</li>
+<li>Developed Flask-based web interface</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Intern – Hyundai Motor India Limited</h3>
+<p><i>July 2023</i></p>
+<ul>
+<li>Researched offline video & GIF editing tools</li>
+<li>Gained exposure to Robotic Process Automation (RPA)</li>
+<li>Observed real-time industrial AI systems</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Intern – FIIT</h3>
+<p><i>January 2023</i></p>
+<ul>
+<li>Learned server architecture & cloud fundamentals</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="container">
+<h2 class="section-title">Projects</h2>
+
+<div class="card">
+<h3>Supply Chain Management System</h3>
+<ul>
+<li>Real-time inventory monitoring for fixed-price shops</li>
+<li>Automated restocking alerts</li>
+<li>Collaboration with Tamil Nadu Government</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>XRayGen</h3>
+<ul>
+<li>Synthetic chest X-ray generation using ACGAN</li>
+<li>Improved pneumonia dataset generalization</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Integrated Vision</h3>
+<ul>
+<li>Eye disease classification using CNN + ViT + Swin</li>
+<li>Diagnoses cataract, DR, glaucoma</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>MedBot</h3>
+<ul>
+<li>Disease prediction using Mistral-7B</li>
+<li>Symptom-based classification</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <h2 class="section-title">Publications</h2>
+
+    <!-- Paper 1 -->
+    <div class="card">
+      <h3>Swintrocr: A Transformer-Based Approach for High-Accuracy Tamil Text Recognition</h3>
+      <p><b>Publication:</b> IEEE Xplore</p>
+      <p><b>Year:</b> 2025</p>
+      <p>
+        Proposed a transformer-based OCR framework for accurate recognition of handwritten
+        Tamil text, achieving improved character-level accuracy on real-world datasets.
+      </p>
+    </div>
+
+    <!-- Paper 2 -->
+    <div class="card">
+      <h3>Hybrid CNN–ViT Ensemble for Enhanced Ear Disease Classification</h3>
+      <p><b>Publication:</b> IEEE Xplore</p>
+      <p><b>Year:</b> 2025</p>
+      <p>
+        Developed an ensemble deep learning framework combining CNN and Vision Transformer
+        architectures to improve diagnostic accuracy for ear disease classification.
+      </p>
+    </div>
+
+    <!-- Paper 3 -->
+    <div class="card">
+      <h3>Soil Monitoring and Crop Recommendation System via IoT and Machine Learning</h3>
+      <p><b>Publication:</b> IEEE Xplore</p>
+      <p><b>Year:</b> 2024</p>
+      <p>
+        Designed an IoT-driven smart agriculture system integrating machine learning models
+        for soil analysis and intelligent crop recommendation.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="container">
+    <h2 class="section-title">Achievements</h2>
+
+    <div class="achievement-grid">
+
+      <div class="card achievement-card">
+        <img src="Screenshot 2026-02-15 151150.png" alt="Impathon 3.0">
+        <h3>3rd Position – Impathon 3.0</h3>
+        <p>Sona College of Technology (Nov 2023)</p>
+      </div>
+
+      <div class="card achievement-card">
+        <img src="ph.JPG" alt="Medaicon 24">
+        <h3>2nd Position – Medaicon ’24</h3>
+        <p>Rajalakshmi Engineering College (Sep 2024)</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <h2 class="section-title">Certifications</h2>
+
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-title">Applied Accelerated Artificial Intelligence</div>
+        <div class="cert-meta">
+          <span class="cert-badge">NPTEL</span>
+          <span>2025</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-title">Machine Learning Specialization</div>
+        <div class="cert-meta">
+          <span class="cert-badge">Coursera</span>
+          <span>2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-title">Computer Vision & Image Processing</div>
+        <div class="cert-meta">
+          <span class="cert-badge">NPTEL</span>
+          <span>2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-title">Responsive Web Design (HTML & CSS)</div>
+        <div class="cert-meta">
+          <span class="cert-badge">Udemy</span>
+          <span>2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-title">Deep Learning</div>
+        <div class="cert-meta">
+          <span class="cert-badge">NPTEL</span>
+          <span>2023</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-title">Python for Data Science (Elite)</div>
+        <div class="cert-meta">
+          <span class="cert-badge">NPTEL</span>
+          <span>2023</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-title">Introduction to Machine Learning</div>
+        <div class="cert-meta">
+          <span class="cert-badge">NPTEL</span>
+          <span>2023</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-title">The Joy of Computing using Python (Elite)</div>
+        <div class="cert-meta">
+          <span class="cert-badge">NPTEL</span>
+          <span>2022</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-title">AI Primer & Python Foundation</div>
+        <div class="cert-meta">
+          <span class="cert-badge">Infosys Springboard</span>
+          <span>2023–24</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="hackathons">
+  <div class="container">
+    <h2 class="section-title">Hackathons & Workshops</h2>
+
+    <div class="card">
+      <h3>V-MEDITHON 2024</h3>
+      <p><i>September 2025</i></p>
+      <p>Developed lung disease classification model using medical imaging; shortlisted among top 25 teams.</p>
+    </div>
+
+    <div class="card">
+      <h3>InfoEdge Ventures AI Hackathon 2024</h3>
+      <p><i>August 2024</i></p>
+      <p>Developed web-based forum for eye and ear disease classification.</p>
+    </div>
+
+    <div class="card">
+      <h3>TRI-NIT Hackathon</h3>
+      <p><i>March 2024</i></p>
+      <p>Built ensemble model for road damage detection using RDD-2022 dataset.</p>
+    </div>
+
+    <div class="card">
+      <h3>Ozmanta’24</h3>
+      <p><i>January 2024</i></p>
+      <p>Presented paper titled <b>“Integrated Vision”</b>.</p>
+    </div>
+
+    <div class="card">
+      <h3>TechnoVIT’22</h3>
+      <p><i>September 2022</i></p>
+      <p>Developed chatbot for college administration.</p>
+    </div>
+
+    <div class="card">
+      <h3>PSG iTech Hackfest</h3>
+      <p><i>August 2022</i></p>
+      <p>Developed creative game using Godot Engine.</p>
+    </div>
+
+    <div class="card">
+      <h3>National Level Practical Workshop on Robotics</h3>
+      <p><i>October 2022</i></p>
+      <p>Conducted by TOP Engineers.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="activities">
+  <div class="container">
+    <h2 class="section-title">Co-Curricular Activities</h2>
+
+    <div class="card">
+      <h3>Department Symposium – CodeRush</h3>
+      <p><i>Organizer (2024)</i></p>
+      <p>Led planning, problem setting, coordination, and execution of competitive coding event.</p>
+    </div>
+
+    <div class="card">
+      <h3>Department Symposium – Paper Presentation</h3>
+      <p><i>Organizer (2022)</i></p>
+      <p>Managed submissions, scheduling, and evaluation.</p>
+    </div>
+
+    <div class="card">
+      <h3>School Pupil Leader</h3>
+      <p><i>2019 – 2020</i></p>
+      <p>Represented students and led academic & extracurricular initiatives.</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Let’s Connect</h2>
+
+    <div class="contact-grid">
+
+      <!-- EMAIL -->
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div class="contact-title">Email</div>
+        <a href="mailto:12117.tharunkumar@gmail.com">
+          12117.tharunkumar@gmail.com
+        </a>
+      </div>
+
+      <!-- PHONE -->
+      <div class="contact-card">
+        <div class="contact-icon">📱</div>
+        <div class="contact-title">Phone</div>
+        <a href="tel:+918124171017">
+          +91 81241 71017
+        </a>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="contact-card">
+        <div class="contact-icon">🌐</div>
+        <div class="contact-title">Social Profiles</div>
+
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/tharun-kumar-s-875573229" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/T-K-234" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer>
+<p>© 2025 Tharun Kumar S</p>
+<p>AI • Research • Real-World Impact</p>
+</footer>
+
+</body>
+</html>
+
+
